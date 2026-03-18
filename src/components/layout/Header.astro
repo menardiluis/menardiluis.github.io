@@ -1,16 +1,19 @@
 ---
 // src/components/layout/Header.astro
+import MobileMenu from '@components/ui/MobileMenu.jsx';
 ---
 
 <header class="header">
   <div class="container header__inner">
-    <a href="/" class="header__logo">LM</a>
+    <a href="/" class="header__logo"><span style=
+    "font-weight: var(--font-weight-light)">luis</span>menardi</a>
     <nav class="header__nav">
       <a href="/" class="header__link">Home</a>
       <a href="/sobre" class="header__link">Sobre</a>
       <a href="/projetos" class="header__link">Projetos</a>
       <a href="/blog" class="header__link">Blog</a>
     </nav>
+    <MobileMenu client:load />
   </div>
 </header>
 
@@ -61,7 +64,7 @@
 
   @media (max-width: 768px) {
     .header__nav {
-      gap: var(--space-4);
+      display: none;
     }
 
     .header__link {

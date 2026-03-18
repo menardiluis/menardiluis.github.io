@@ -11,14 +11,14 @@ import Footer from '@components/layout/Footer.astro';
     <article class="container sobre__content">
       <div class="sobre__header">
         <div class="sobre__image">
-          <img src="/images/profile.jpg" alt="Luis Menardi" />
+          <img src="./public/images/about-me/IMG_4644-min.png" alt="Luis Menardi selfie at Config event" />
         </div>
         <div class="sobre__info">
-          <h1>Luis Menardi</h1>
-          <p class="sobre__specialty">Design Systems • Product Designer • Design Engineer</p>
+          <h1>Hi, I'm Luis!</h1>
           <p class="sobre__description">
             Sou um Product Designer com foco em Design Systems, especializado em criar soluções escaláveis que unem design, engenharia e estratégia. Trabalho na intersecção entre design e tecnologia, criando experiências e sistemas que fazem diferença.
           </p>
+          <p class="sobre__specialty">Design Systems • Product Designer • Design Engineer</p>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ import Footer from '@components/layout/Footer.astro';
     grid-template-columns: 1fr 1.5fr;
     gap: var(--space-12);
     margin-bottom: var(--space-20);
-    align-items: start;
+    align-items: center;
   }
 
   .sobre__image {
@@ -88,14 +88,14 @@ import Footer from '@components/layout/Footer.astro';
 
   .sobre__specialty {
     color: var(--color-text-secondary);
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
-    margin-bottom: var(--space-6);
   }
 
   .sobre__description {
     color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-4);
   }
 
   .sobre__section {
