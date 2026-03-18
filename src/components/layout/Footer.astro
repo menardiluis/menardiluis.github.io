@@ -1,0 +1,64 @@
+---
+// src/components/layout/Footer.astro
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="footer__text">© 2026 Luis Menardi. Todos os direitos reservados.</p>
+    <div class="footer__links">
+      <a href="mailto:luisfelipemenardi@gmail.com" class="footer__link">Email</a>
+      <a href="https://github.com/menardiluis" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
+      <a href="https://linkedin.com/in/menardiluis" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-12) var(--space-8);
+    margin-top: var(--space-32);
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+
+  .footer__text {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+  }
+
+  .footer__links {
+    display: flex;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .footer__link {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__link:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .footer__inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer__links {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

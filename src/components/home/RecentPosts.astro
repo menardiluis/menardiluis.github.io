@@ -1,0 +1,66 @@
+---
+// src/components/home/RecentPosts.astro
+import PostCard from '@components/blog/PostCard.astro';
+
+const recent = [];
+---
+
+<section class="recent-posts">
+  <div class="container">
+    <div class="recent-posts__header">
+      <h2>Posts recentes</h2>
+      <a href="/blog" class="recent-posts__cta">Ver todos</a>
+    </div>
+    
+    {recent.length > 0 ? (
+      <div class="recent-posts__grid">
+        {recent.map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+    ) : (
+      <p class="recent-posts__empty">Posts em breve!</p>
+    )}
+  </div>
+</section>
+
+<style>
+  .recent-posts {
+    padding: var(--space-24) var(--space-8);
+  }
+
+  .recent-posts__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-12);
+  }
+
+  .recent-posts__header h2 {
+    margin: 0;
+  }
+
+  .recent-posts__cta {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-accent);
+  }
+
+  .recent-posts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .recent-posts__empty {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--space-12);
+  }
+
+  @media (max-width: 768px) {
+    .recent-posts {
+      padding: var(--space-16) var(--space-6);
+    }
+  }
+</style>

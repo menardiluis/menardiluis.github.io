@@ -1,0 +1,87 @@
+---
+// src/components/home/Hero.astro
+---
+
+<section class="hero">
+  <div class="container hero__inner">
+    <p class="hero__eyebrow animate-fade-up stagger-1">Product Designer</p>
+    <h1 class="hero__name animate-fade-up stagger-2">Luis Menardi</h1>
+    <p class="hero__tagline animate-fade-up stagger-3">
+      Design Systems · Product Designer · Design Engineer
+    </p>
+    <div class="hero__actions animate-fade-up stagger-4">
+      <a href="mailto:luisfelipemenardi@gmail.com" class="btn btn--primary">Trabalhe comigo</a>
+      <a href="/projetos" class="btn btn--secondary">Ver projetos</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-12) var(--space-8);
+    background: linear-gradient(135deg, transparent 0%, rgba(143, 87, 217, 0.03) 100%);
+  }
+
+  .hero__inner {
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .hero__eyebrow {
+    font-size: var(--font-size-base);
+    color: var(--color-accent);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__name {
+    font-family: var(--font-display);
+    font-size: var(--font-size-hero);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-6);
+    background: linear-gradient(135deg, var(--color-text-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero__tagline {
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-12);
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--space-6);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 60vh;
+      padding: var(--space-8) var(--space-6);
+    }
+
+    .hero__name {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero__tagline {
+      font-size: var(--font-size-base);
+    }
+
+    .hero__actions {
+      gap: var(--space-4);
+    }
+  }
+</style>

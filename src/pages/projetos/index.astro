@@ -1,0 +1,86 @@
+---
+// src/pages/projetos/index.astro
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+import ProjectCard from '@components/projects/ProjectCard.astro';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Projetos - Luis Menardi" description="Confira meus projetos de Design Systems e Product Design.">
+  <Header />
+  <main class="projetos">
+    <div class="container">
+      <h1>Projetos</h1>
+      <p class="projetos__subtitle">Explore meu trabalho em Design Systems, Product Design e Design Engineering</p>
+      
+      {projects.length > 0 ? (
+        <div class="projetos__grid">
+          {projects.map((project) => (
+            <ProjectCard 
+              project={{
+                title: project.data.title,
+                company: project.data.company,
+                year: project.data.year,
+                cover: project.data.cover,
+                slug: project.slug
+              }} 
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="projetos__empty">
+          <p>Projetos em breve! Volte em outro momento.</p>
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .projetos {
+    padding: var(--space-12) var(--space-8);
+    min-height: 60vh;
+  }
+
+  .projetos h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .projetos__subtitle {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-16);
+  }
+
+  .projetos__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .projetos__empty {
+    text-align: center;
+    padding: var(--space-16);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+  }
+
+  .projetos__empty p {
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .projetos {
+      padding: var(--space-8) var(--space-6);
+    }
+
+    .projetos__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

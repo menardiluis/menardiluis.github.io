@@ -1,0 +1,87 @@
+---
+// src/components/projects/ProjectCard.astro
+interface Props {
+  project?: {
+    title: string;
+    company: string;
+    year: number;
+    cover: string;
+    slug: string;
+  };
+}
+
+const { project } = Astro.props;
+---
+
+{project && (
+  <a href={`/projetos/${project.slug}`} class="project-card">
+    <div class="project-card__image">
+      <img src={project.cover} alt={project.title} />
+    </div>
+    <div class="project-card__content">
+      <h3 class="project-card__title">{project.title}</h3>
+      <p class="project-card__meta">
+        {project.company} · {project.year}
+      </p>
+    </div>
+  </a>
+)}
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .project-card__image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--color-surface);
+  }
+
+  .project-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+  }
+
+  .project-card:hover .project-card__image img {
+    transform: scale(1.05);
+  }
+
+  .project-card__content {
+    padding: var(--space-6);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .project-card__title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-2);
+    color: var(--color-text-primary);
+  }
+
+  .project-card__meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+</style>

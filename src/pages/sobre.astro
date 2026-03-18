@@ -1,0 +1,157 @@
+---
+// src/pages/sobre.astro
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+---
+
+<BaseLayout title="Sobre - Luis Menardi" description="Conheça Luis Menardi, especialista em Design Systems e Product Design.">
+  <Header />
+  <main class="sobre">
+    <article class="container sobre__content">
+      <div class="sobre__header">
+        <div class="sobre__image">
+          <img src="/images/profile.jpg" alt="Luis Menardi" />
+        </div>
+        <div class="sobre__info">
+          <h1>Luis Menardi</h1>
+          <p class="sobre__specialty">Design Systems • Product Designer • Design Engineer</p>
+          <p class="sobre__description">
+            Sou um Product Designer com foco em Design Systems, especializado em criar soluções escaláveis que unem design, engenharia e estratégia. Trabalho na intersecção entre design e tecnologia, criando experiências e sistemas que fazem diferença.
+          </p>
+        </div>
+      </div>
+
+      <section class="sobre__section">
+        <h2>Carreira</h2>
+        <div class="sobre__timeline">
+          <div class="timeline-item">
+            <h3>Product Designer</h3>
+            <p class="timeline-date">2020 - Presente</p>
+            <p>Liderando projetos de design systems e product design em empresas de tecnologia.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>UX/UI Designer</h3>
+            <p class="timeline-date">2018 - 2020</p>
+            <p>Explorando design digital e criando experiências em diferentes plataformas.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sobre__section">
+        <h2>Valores</h2>
+        <ul class="sobre__values">
+          <li><strong>Atenção ao detalhe:</strong> cada pixel importa, assim como a experiência geral.</li>
+          <li><strong>Pensamento sistêmico:</strong> soluções escaláveis beneficiam mais pessoas.</li>
+          <li><strong>Colaboração:</strong> os melhores projetos nascem de boas conversas.</li>
+          <li><strong>Aprendizado contínuo:</strong> design e tecnologia evoluem rapidamente.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .sobre {
+    padding: var(--space-12) var(--space-8);
+  }
+
+  .sobre__content {
+    max-width: 800px;
+  }
+
+  .sobre__header {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-20);
+    align-items: start;
+  }
+
+  .sobre__image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background-color: var(--color-surface);
+  }
+
+  .sobre__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sobre__info h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .sobre__specialty {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-6);
+  }
+
+  .sobre__description {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .sobre__section {
+    margin-bottom: var(--space-16);
+  }
+
+  .sobre__section h2 {
+    margin-bottom: var(--space-8);
+  }
+
+  .sobre__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .timeline-item {
+    padding-left: var(--space-6);
+    border-left: 2px solid var(--color-accent);
+  }
+
+  .timeline-item h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline-date {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  .sobre__values {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .sobre__values li {
+    padding: var(--space-4);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .sobre {
+      padding: var(--space-8) var(--space-6);
+    }
+
+    .sobre__header {
+      grid-template-columns: 1fr;
+    }
+
+    .sobre__image {
+      aspect-ratio: 1/1;
+    }
+  }
+</style>

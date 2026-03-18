@@ -1,0 +1,86 @@
+---
+// src/pages/blog/index.astro
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+import PostCard from '@components/blog/PostCard.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog - Luis Menardi" description="Artigos sobre Design Systems, Product Design e Design Engineering.">
+  <Header />
+  <main class="blog">
+    <div class="container">
+      <h1>Blog</h1>
+      <p class="blog__subtitle">Pensamentos e insights sobre design, sistemas e tecnologia</p>
+      
+      {posts.length > 0 ? (
+        <div class="blog__grid">
+          {posts.map((post) => (
+            <PostCard 
+              post={{
+                title: post.data.title,
+                date: post.data.date,
+                summary: post.data.summary,
+                slug: post.slug,
+                category: post.data.category
+              }} 
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="blog__empty">
+          <p>Posts em breve! Volte em outro momento.</p>
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog {
+    padding: var(--space-12) var(--space-8);
+    min-height: 60vh;
+  }
+
+  .blog h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .blog__subtitle {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-16);
+  }
+
+  .blog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .blog__empty {
+    text-align: center;
+    padding: var(--space-16);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+  }
+
+  .blog__empty p {
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .blog {
+      padding: var(--space-8) var(--space-6);
+    }
+
+    .blog__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

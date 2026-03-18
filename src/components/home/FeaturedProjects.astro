@@ -1,0 +1,71 @@
+---
+// src/components/home/FeaturedProjects.astro
+import ProjectCard from '@components/projects/ProjectCard.astro';
+
+const featured = [];
+---
+
+<section class="featured-projects">
+  <div class="container">
+    <div class="featured-projects__header">
+      <h2>Projetos em destaque</h2>
+      <a href="/projetos" class="featured-projects__cta">Ver todos</a>
+    </div>
+    
+    {featured.length > 0 ? (
+      <div class="featured-projects__grid">
+        {featured.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    ) : (
+      <p class="featured-projects__empty">Projetos em breve!</p>
+    )}
+  </div>
+</section>
+
+<style>
+  .featured-projects {
+    padding: var(--space-24) var(--space-8);
+    background-color: var(--color-surface);
+  }
+
+  .featured-projects__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-12);
+  }
+
+  .featured-projects__header h2 {
+    margin: 0;
+  }
+
+  .featured-projects__cta {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-accent);
+  }
+
+  .featured-projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .featured-projects__empty {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--space-12);
+  }
+
+  @media (max-width: 768px) {
+    .featured-projects {
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .featured-projects__header {
+      gap: var(--space-4);
+    }
+  }
+</style>

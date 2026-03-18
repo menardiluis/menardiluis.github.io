@@ -1,0 +1,37 @@
+---
+// src/layouts/BaseLayout.astro
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Luis Menardi - Design Systems • Product Designer • Design Engineer', description = 'Portfólio de Luis Menardi, especialista em Design Systems, Product Design e Design Engineer.' } = Astro.props;
+
+import '@styles/tokens.css';
+import '@styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Luis Menardi" />
+    
+    <!-- OG Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://menardiluis.github.io" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
