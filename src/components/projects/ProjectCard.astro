@@ -1,7 +1,5 @@
 ---
 // src/components/projects/ProjectCard.astro
-import ScrollImageReveal from '@components/ui/ScrollImageReveal.jsx';
-
 interface Props {
   project?: {
     title: string;
@@ -18,7 +16,7 @@ const { project } = Astro.props;
 {project && (
   <a href={`/projetos/${project.slug}`} class="project-card">
     <div class="project-card__image">
-      <ScrollImageReveal client:load src={project.cover} alt={project.title} className="project-card__image-img" />
+      <img src={project.cover} alt={project.title} />
     </div>
     <div class="project-card__content">
       <h3 class="project-card__title">{project.title}</h3>
@@ -60,13 +58,6 @@ const { project } = Astro.props;
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-base);
-  }
-
-  .project-card__image-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    display: block;
   }
 
   .project-card:hover .project-card__image img {

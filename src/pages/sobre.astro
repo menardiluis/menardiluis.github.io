@@ -3,8 +3,6 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
-import ScrollImageReveal from '@components/ui/ScrollImageReveal.jsx';
-import ScrambleText from '@components/ui/ScrambleText.jsx';
 ---
 
 <BaseLayout title="Sobre - Luis Menardi" description="Conheça Luis Menardi, especialista em Design Systems e Product Design.">
@@ -13,10 +11,10 @@ import ScrambleText from '@components/ui/ScrambleText.jsx';
     <article class="container sobre__content">
       <div class="sobre__header">
         <div class="sobre__image">
-          <ScrollImageReveal client:load src="/images/profile.jpg" alt="Luis Menardi" className="sobre__image-img" />
+          <img src="/images/profile.jpg" alt="Luis Menardi" />
         </div>
         <div class="sobre__info">
-          <h1><ScrambleText client:load>Luis Menardi</ScrambleText></h1>
+          <h1>Luis Menardi</h1>
           <p class="sobre__specialty">Design Systems • Product Designer • Design Engineer</p>
           <p class="sobre__description">
             Sou um Product Designer com foco em Design Systems, especializado em criar soluções escaláveis que unem design, engenharia e estratégia. Trabalho na intersecção entre design e tecnologia, criando experiências e sistemas que fazem diferença.
@@ -82,13 +80,6 @@ import ScrambleText from '@components/ui/ScrambleText.jsx';
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .sobre__image-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    display: block;
   }
 
   .sobre__info h1 {
