@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
+import ScrollImageReveal from '@components/ui/ScrollImageReveal.jsx';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -44,10 +45,11 @@ const { Content } = await project.render();
         </div>
       </div>
 
-      <img 
+      <ScrollImageReveal 
+        client:load
         src={project.data.cover} 
         alt={project.data.title}
-        class="project-detail__cover"
+        className="project-detail__cover"
       />
 
       <div class="project-detail__body">
