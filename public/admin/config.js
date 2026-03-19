@@ -1,18 +1,8 @@
 window.CMS_CONFIG = {
   locale: 'pt_BR',
   backend: {
-    name: 'github',
-    repo: 'menardiluis/menardiluis.github.io',
-    branch: 'main',
-    auth_scope: 'repo',
-    squash_merges: true,
-    commit_messages: {
-      create: 'chore(cms): create {{collection}} "{{slug}}"',
-      update: 'chore(cms): update {{collection}} "{{slug}}"',
-      delete: 'chore(cms): delete {{collection}} "{{slug}}"',
-      uploadMedia: 'chore(cms): upload media',
-      deleteMedia: 'chore(cms): delete media'
-    }
+    name: 'git-gateway',
+    branch: 'main'
   },
   site_url: 'https://menardiluis.netlify.app',
   logo_url: 'https://menardiluis.netlify.app/favicon.svg',
