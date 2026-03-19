@@ -11,6 +11,11 @@ export default defineConfig({
   clientId: process.env.TINA_CLIENT_ID || "bdb3d7a0-e9d1-4547-b22a-ec811ee4ada8",
   token: process.env.TINA_TOKEN || "",
   apiURL: "https://content.tinajs.io",
+  authProvider: {
+    login: () => {
+      window.location.href = `https://app.tina.io/projects/bdb3d7a0-e9d1-4547-b22a-ec811ee4ada8/editor`;
+    },
+  },
   build: {
     outputDir: "admin",
   },
