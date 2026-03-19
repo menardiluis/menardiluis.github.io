@@ -9,5 +9,24 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.1.2/dist/decap-cms.js"></script>
+    <script>
+      // Aguardar o Decap CMS carregar
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM Loaded');
+        if (window.CMS_IDENTIFIER_WINDOW) {
+          console.log('Decap CMS está carregado');
+        }
+      });
+
+      // Aguardar por 2 segundos para garantir que o CMS carregou
+      setTimeout(function() {
+        if (window.CMS) {
+          console.log('Decap CMS pronto');
+          // O CMS deve carregar o config.yml automaticamente
+        } else {
+          console.error('Decap CMS ainda não carregou');
+        }
+      }, 2000);
+    </script>
   </body>
 </html>
