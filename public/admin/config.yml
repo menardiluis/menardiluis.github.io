@@ -4,7 +4,6 @@ backend:
   name: github
   repo: menardiluis/menardiluis.github.io
   branch: main
-  auth_endpoint: api/auth
   auth_scope: repo
   squash_merges: true
   commit_messages:
@@ -19,8 +18,6 @@ public_folder: "/images/blog"
 
 publish_mode: editorial_workflow
 show_preview_links: true
-display_url: https://menardiluis.github.io
-logo_url: https://menardiluis.github.io/images/logo.png
 
 collections:
   - name: blog
