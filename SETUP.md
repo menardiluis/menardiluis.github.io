@@ -100,54 +100,118 @@ Toda vez que você faz `push` para `main`, o GitHub Actions vai:
    - Fazer commit automático no GitHub
    - GitHub Actions vai fazer build e deploy
 
-**Seu novo post/projeto aparecerá em 2-3 minutos no site!**
+---
+
+## Passo 6: Adicionar Foto de Perfil
+
+1. Salve uma foto sua em: `public/images/profile.jpg` (proporção 3:4)
+2. Faça commit e push:
+
+```bash
+git add public/images/profile.jpg
+git commit -m "feat: add profile image"
+git push
+```
 
 ---
 
-## Passo 6: Adicion
+## Passo 7: Personálizar Informações
 
-Clique **Deploy site**
+Atualize seus dados em diversos arquivos:
 
-Pronto! Seu site estará em `https://seu-site-aleatorio.netlify.app` (em poucos minutos)
+### Dados na home [src/pages/index.astro](src/pages/index.astro)
+- Nome
+- Email
+- Especialidades
 
-### 3.4 — (Opcional) Usar Domínio Customizado
+### Dados na página sobre [src/pages/sobre.astro](src/pages/sobre.astro)
+- Bio completa
+- Carreira
+- Valores
 
-Para usar `menardiluis.github.io` no Netlify:
-
-1. Na configuração do Netlify, vá em **Domain settings**
-2. Clique **Add custom domain**
-3. Digite `menardiluis.github.io`
-4. Siga as instruções de DNS
+### Dados na config [astro.config.mjs](astro.config.mjs)
+- Site URL já tem seu username
 
 ---
 
-## Passo 4: Configurar OAuth para Decap CMS
+## ✅ Checklist Final
 
-### 4.1 — Criar OAuth Application no GitHub
+- [ ] Repositório criado como `menardiluis.github.io`
+- [ ] Código enviado para `main`
+- [ ] GitHub Pages configurado
+- [ ] Workflow de deploy em sucesso (verde ✅)
+- [ ] Site acessível em `https://menardiluis.github.io`
+- [ ] Conta Forestry criada
+- [ ] Repositório conectado no Forestry
+- [ ] CMS acessível via Forestry
+- [ ] Foto de perfil inserida
+- [ ] Informações pessoais atualizadas
 
-1. Vá para **GitHub → Settings → Developer settings → OAuth Apps**
-2. Clique **New OAuth App**
-3. Preencha:
-   - **Application name:** Portfolio CMS
-   - **Homepage URL:** `https://seu-site.netlify.app` (ou seu domínio)
-   - **Authorization callback URL:** `https://api.netlify.com/auth/done`
-4. Clique **Register application**
-5. Copie o **Client ID**
-6. Clique **Generate a new client secret** e copie também
+---
 
-### 4.2 — Adicionar Secrets no Netlify
+## 📚 Como Usar o Forestry CMS
 
-1. No painel Netlify, vá em **Site settings → Build & deploy → Environment**
-2. Clique **Edit variables**
-3. Adicione dois novos:
-   - **GITHUB_CLIENT_ID:** Colar o Client ID
-   - **GITHUB_CLIENT_SECRET:** Colar o Client Secret
-4. Redeploy o site (clique em **Trigger deploy**)
+### Adicionar um Blog Post
 
-### 4.3 — Testar o CMS
+1. Vá para [app.forestry.io](https://app.forestry.io)
+2. Selecione seu site
+3. Clique **Blog Posts**
+4. Clique **Create new**
+5. Preencha:
+   - Título
+   - Data
+   - Resumo
+   - Categoria (select)
+   - Tags (opcional)
+   - Conteúdo em Markdown
+6. Clique **Save**
+7. Forestry fará commit automático → GitHub Actions faz deploy
 
-1. Vá para: `https://seu-site.netlify.app/admin/` 
-2. Clique **Login with GitHub**
+### Adicionar um Projeto
+
+1. Vá para [app.forestry.io](https://app.forestry.io)
+2. Selecione seu site
+3. Clique **Projetos**
+4. Clique **Create new**
+5. Preencha todos os campos
+6. Clique **Save**
+
+---
+
+## 🐛 Troubleshooting
+
+### "O site não apareceu ainda"
+- Aguarde 5-10 minutos após fazer push
+- Verifique **Actions** para ver se o workflow passou
+- Limpe o cache do navegador (Ctrl+Shift+Del)
+
+### "Forestry não vê as mudanças"
+- Clique em **Settings** → **Sync from GitHub**
+- Forestry sincroniza a cada mudança automicamente
+
+### "Deploy falha"
+- Verifique **Actions** no GitHub para ver o erro
+- Geralmente é problema no build do Astro
+- Verifique se os arquivos estão no lugar certo
+
+---
+
+## 💡 Dicas
+
+- **Editar pelo código:** Sempre funciona, use VS Code normalmente
+- **Editar pelo CMS:** Use Forestry para interface visual
+- **Ambos funcionam juntos:** Você pode usar código e CMS ao mesmo tempo
+- **Backup automático:** Git + GitHub = backup grátis e infinito
+
+---
+
+## 🚀 Próximos Passos
+
+- Escrever primeiros posts no Forestry
+- Adicionar projetos ao portfólio
+- Customizar cores e fonts em `src/styles/tokens.css`
+- Adicionar suas redes sociais
+- Domínio customizado (opcional)
 3. Autorize o acesso
 4. ✅ Painel do CMS deve aparecer!
 
