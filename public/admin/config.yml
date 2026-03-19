@@ -1,4 +1,6 @@
 locale: pt_BR
+site_url: https://menardiluis.netlify.app
+logo_url: https://menardiluis.netlify.app/favicon.svg
 
 backend:
   name: github
