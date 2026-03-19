@@ -36,6 +36,7 @@
   --color-text-secondary: #333333;
   --color-text-disabled: #444444;
   --color-accent: #8f57d9;
+  --color-accent-subtle: hsl(266, 63%, 92%);
   --color-accent-hover: #752fd0;
   --color-accent-muted: hsl(266, 63%, 12%);
 
@@ -137,7 +138,7 @@ body {
 /* ── Links ── */
 a {
   color: var(--color-accent);
-  text-decoration: none;
+  text-decoration: underline;
   transition: color var(--transition-fast);
 }
 

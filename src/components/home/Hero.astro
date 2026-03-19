@@ -1,21 +1,23 @@
 ---
 // src/components/home/Hero.astro
+import Button from '@components/ui/button.jsx'
 ---
 
 <section class="hero">
   <div class="container hero__inner">
-    <img class="hero__image" src="./public/images/home/IMG_4972.jpg" alt="Luis' profile picture">
+    <img class="hero__image" src="/images/home/IMG_4972.jpg" alt="Luis' profile picture">
     <div class="hero__display animate-fade-up stagger-2"> 
       <p class="hero__eyebrow animate-fade-up stagger-1">Product Designer</p>
       <h1 class="hero__name">Luis Menardi</h1>
       <p class="hero__tagline animate-fade-up stagger-3">
         Design Systems · Product Designer · Design Engineer
       </p>
-    </div>
-    <div class="hero__actions animate-fade-up stagger-4">
-        <a href="mailto:luisfelipemenardi@gmail.com" class="btn btn--primary">Trabalhe comigo</a>
-        <a href="/projetos" class="btn btn--secondary">Ver projetos</a>
+      <div class="hero__actions animate-fade-up stagger-4">
+        <Button client:load variant="secondary" href="mailto:luisfelipemenardi@gmail.com">Trabalhe comigo</Button>
+        <Button client:load variant="primary" href="/projetos">Ver projetos</Button>
       </div>
+    </div>
+
   </div>
 </section>
 
@@ -31,21 +33,23 @@
 
   .hero__display {
     display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
     padding: 40px 40px;
     border-radius: 24px;
-    flex-direction: column;
     align-items: center;
     width: 100%
     flex-wrap: wrap;
     backdrop-filter: blur(10px) brightness(100%) saturate(100%);
     border: 1.5px solid rgba(255, 255, 255, 0.24);
-    background: linear-gradient(135deg,  rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.24) 100%);
+    background: linear-gradient(135deg,  rgba(255, 255, 255, 0.16) 0%, rgba(230, 230, 230, 0.64) 100%);
     
   }
 
   .hero__inner {
     text-align: center;
     max-width: 800px;
+    gap: 16px;
   }
 
   .hero__image {
@@ -83,7 +87,6 @@
     font-size: var(--font-size-md);
     color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
-    margin-bottom: var(--space-8);
   }
 
   .hero__actions {
@@ -120,5 +123,6 @@
     .hero__actions {
       gap: var(--space-4);
     }
+
   }
 </style>

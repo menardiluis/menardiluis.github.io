@@ -11,7 +11,7 @@ import Footer from '@components/layout/Footer.astro';
     <article class="container sobre__content">
       <div class="sobre__header">
         <div class="sobre__image">
-          <img src="./public/images/about-me/IMG_4644-min.png" alt="Luis Menardi selfie at Config event" />
+          <img src="/images/about-me/IMG_4644-min.png" alt="Luis Menardi selfie at Config event" />
         </div>
         <div class="sobre__info">
           <h1>Hi, I'm Luis!</h1>
@@ -22,31 +22,93 @@ import Footer from '@components/layout/Footer.astro';
         </div>
       </div>
 
+      
       <section class="sobre__section">
-        <h2>Carreira</h2>
+        <h2>Main competences</h2>
+        <ul class="sobre__values">
+          <li><strong>Systemic thinking:</strong> my solutions always aim for scalability, reuse and large scale impact.</li>
+          <li><strong>Collaboration:</strong> I gather people with me so we can all think together on the 
+          solution for the challenges we are facing.</li>
+          <li><strong>Continuous learning:</strong> technology is evolving quickly, there's always something new to learn
+          and I'm passionate about it.</li>
+        </ul>
+      </section>
+
+      <section class="sobre__section">
+        <h2>Career</h2>
         <div class="sobre__timeline">
           <div class="timeline-item">
-            <h3>Product Designer</h3>
-            <p class="timeline-date">2020 - Presente</p>
-            <p>Liderando projetos de design systems e product design em empresas de tecnologia.</p>
+            <div class="timeline-item-header">
+              <h3>Senior Product Designer</h3>
+              <p class="company-name">Itaú Unibanco</p>
+            </div>
+            <p class="timeline-date">Jul 2025 - Current</p>
+            <p>Works in the Design System team, is responsible for creating and maintaining the Design System's design 
+            tokens and themes, support core components team create and maintaining and documenting components. Also, 
+            is responsible to explore the application of AI in the design process in the DS team.</p>
           </div>
           <div class="timeline-item">
-            <h3>UX/UI Designer</h3>
-            <p class="timeline-date">2018 - 2020</p>
-            <p>Explorando design digital e criando experiências em diferentes plataformas.</p>
+            <div class="timeline-item-header">
+              <h3>Analyst Product Designer</h3>
+              <p class="company-name">iFood</p>
+            </div>
+            <p class="timeline-date">Jun 2023 - Jun 2025</p>
+            <p>Worked in the Design System & Ops team, is responsible for creating and maintaining Design System
+             components, support iFood's design team, create and maintaining documentations for components
+              and team processes in order to create standards and to increase the consistency of iFood's products.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-item-header">
+              <h3>Lead Product Designer</h3>
+              <p class="company-name">World Bank Group</p>
+            </div>
+            <p class="timeline-date">Jan 2022 - Jun 2025</p>
+            <p>Product Designer on a World Bank Group's project that aimed to create the 
+            <a href="https://coachdigital.org/np/docs/docs/code/intro/">"Coach Digital" app</a> in collaboration 
+            with the governments of Sierra Leone and Nepal.
+            <br>The main goal was to improve the quality of education in these countries through technology and data 
+            by the digitalization of a pedagogical material created by the WBG and provide visibility to those governments
+            of the current state of the education.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-item-header">
+              <h3>Product Designer</h3>
+              <p class="company-name">Savings Collaborative</p>
+            </div>
+            <p class="timeline-date">Jan 2022 - Jun 2025</p>
+            <p>Worked on the design team focused on creating experiences for the Savings Collaborative app 
+            and its administrative panel, making it easier for users to develop healthy financial habits in the USA.
+            <br>Was responsible for making discoveries, user testing, create, maintaining and documenting user flows 
+            and creating creative solutions based on data.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-item-header">
+              <h3>Junior Product Designer</h3>
+              <p class="company-name">iFood</p>
+            </div>
+            <p class="timeline-date">Jan 2022 - Jun 2023</p>
+            <p>Worked in the Design System & Ops team, responsible for creating and maintaining Design System 
+            components and flows.
+            <br>Was responsible for tokens restructuring projects, documentation standardization, typographic 
+            font changes, discovery process about designers and developers' contribution and satisfaction 
+            with the Design System.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-item-header">
+              <h3>Intern Product Designer</h3>
+              <p class="company-name">iFood</p>
+            </div>
+            <p class="timeline-date">Jan 2021 - Jan 2022</p>
+            <p>Worked in the Design System & Ops team, responsible for creating and maintaining Design System 
+            components and flows.
+            <br>In the Design Ops team, assisted the maintenance of the Design System and the management of 
+            design teams, also co-created the design accessibility meetup.
+            <br>As an internship conclusion work, was responsible for the project to create an accessibility 
+            guide for digital products.</p>
           </div>
         </div>
       </section>
 
-      <section class="sobre__section">
-        <h2>Valores</h2>
-        <ul class="sobre__values">
-          <li><strong>Atenção ao detalhe:</strong> cada pixel importa, assim como a experiência geral.</li>
-          <li><strong>Pensamento sistêmico:</strong> soluções escaláveis beneficiam mais pessoas.</li>
-          <li><strong>Colaboração:</strong> os melhores projetos nascem de boas conversas.</li>
-          <li><strong>Aprendizado contínuo:</strong> design e tecnologia evoluem rapidamente.</li>
-        </ul>
-      </section>
     </article>
   </main>
   <Footer />
@@ -117,8 +179,16 @@ import Footer from '@components/layout/Footer.astro';
     border-left: 2px solid var(--color-accent);
   }
 
-  .timeline-item h3 {
-    margin-bottom: var(--space-2);
+  .timeline-item-header {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
+  .company-name {
+    color: var(--color-accent);
+    font-weight: var(--font-weight-semibold);
   }
 
   .timeline-date {
@@ -131,7 +201,7 @@ import Footer from '@components/layout/Footer.astro';
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
 
   .sobre__values li {
@@ -152,6 +222,11 @@ import Footer from '@components/layout/Footer.astro';
 
     .sobre__image {
       aspect-ratio: 1/1;
+    }
+
+    .timeline-item-header {
+      flex-direction: column;
+      align-items: start;
     }
   }
 </style>
