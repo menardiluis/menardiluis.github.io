@@ -1,13 +1,13 @@
-# 🚀 Guia de Setup — GitHub Pages + Forestry CMS (100% Grátis)
+# 🚀 Guia de Setup — GitHub Pages + TinaCMS (100% Grátis)
 
-Este guia orienta você passo a passo para colocar seu portfólio no ar com CMS visual e completamente grátis!
+Este guia orienta você passo a passo para colocar seu portfólio no ar com CMS visual moderno e completamente grátis!
 
 ---
 
 ## ✨ Stack Utilizado
 
 - **Host:** GitHub Pages (grátis, forever)
-- **CMS:** Forestry.io (grátis para 1 site)
+- **CMS:** TinaCMS (grátis, interface moderna)
 - **Deploy:** GitHub Actions (automático)
 - **Build:** Astro
 
@@ -71,34 +71,36 @@ Toda vez que você faz `push` para `main`, o GitHub Actions vai:
 
 ---
 
-## Passo 5: Configurar Forestry CMS (GRÁTIS!)
+## Passo 5: Configurar TinaCMS (GRÁTIS!)
 
-### 5.1 — Criar Conta Forestry
+### 5.1 — Criar Conta TinaCMS
 
-1. Vá para [app.forestry.io](https://app.forestry.io)
-2. Clique **Sign up with GitHub**
-3. Autorize o acesso
-4. Pronto!
+1. Vá para [**app.tina.io**](https://app.tina.io)
+2. Clique **Sign up**
+3. Selecione **GitHub**
+4. Autorize o acesso
+5. Pronto!
 
-### 5.2 — Importar Repositório
+### 5.2 — Conectar Seu Repositório
 
-1. No Forestry, clique **Add site**
-2. Procure por **GitHub**
-3. Selecione seu repositório **`menardiluis.github.io`**
-4. Clique **Connect**
-5. Forestry detectará automaticamente a estrutura (`.forestry/settings.yml`)
+1. No dashboard do Tina, clique **Create new site**
+2. Selecione seu repositório **`menardiluis.github.io`**
+3. Clique **Connect**
+4. Tina vai detectar automaticamente `tina/config.ts`
 
 ### 5.3 — Testar o CMS
 
-1. Você será redirecionado para o dashboard do Forestry
+1. Você será redirecionado para o dashboard do Tina
 2. Clique em **Blog Posts** ou **Projetos**
-3. Clique **Create new**
-4. Preencha os campos
-5. Clique **Save**
-6. Forestry vai:
+3. Clique **Create a new ...**
+4. Preencha os campos com a interface visual
+5. Clique **Save and Commit**
+6. Tina vai:
    - Criar o arquivo
    - Fazer commit automático no GitHub
    - GitHub Actions vai fazer build e deploy
+
+**Seu novo post/projeto aparecerá em 2-3 minutos no site!**
 
 ---
 
@@ -141,40 +143,47 @@ Atualize seus dados em diversos arquivos:
 - [ ] GitHub Pages configurado
 - [ ] Workflow de deploy em sucesso (verde ✅)
 - [ ] Site acessível em `https://menardiluis.github.io`
-- [ ] Conta Forestry criada
-- [ ] Repositório conectado no Forestry
-- [ ] CMS acessível via Forestry
+- [ ] Conta TinaCMS criada
+- [ ] Repositório conectado no TinaCMS
+- [ ] CMS acessível via TinaCMS
 - [ ] Foto de perfil inserida
 - [ ] Informações pessoais atualizadas
 
 ---
 
-## 📚 Como Usar o Forestry CMS
+## 📚 Como Usar o TinaCMS
 
 ### Adicionar um Blog Post
 
-1. Vá para [app.forestry.io](https://app.forestry.io)
+1. Vá para [app.tina.io](https://app.tina.io)
 2. Selecione seu site
 3. Clique **Blog Posts**
-4. Clique **Create new**
+4. Clique **Create a new post**
 5. Preencha:
    - Título
    - Data
    - Resumo
    - Categoria (select)
    - Tags (opcional)
-   - Conteúdo em Markdown
-6. Clique **Save**
-7. Forestry fará commit automático → GitHub Actions faz deploy
+   - Capa (imagem)
+   - Conteúdo em Markdown com preview visual
+6. Clique **Save and Commit**
+7. Tina fará commit automático → GitHub Actions faz deploy
 
 ### Adicionar um Projeto
 
-1. Vá para [app.forestry.io](https://app.forestry.io)
+1. Vá para [app.tina.io](https://app.tina.io)
 2. Selecione seu site
 3. Clique **Projetos**
-4. Clique **Create new**
+4. Clique **Create a new project**
 5. Preencha todos os campos
-6. Clique **Save**
+6. Clique **Save and Commit**
+
+### Preview em Tempo Real
+
+- Enquanto edita, veja as mudanças em tempo real
+- TinaCMS mostra uma preview ao lado
+- Confirme antes de fazer commit
 
 ---
 
@@ -185,9 +194,9 @@ Atualize seus dados em diversos arquivos:
 - Verifique **Actions** para ver se o workflow passou
 - Limpe o cache do navegador (Ctrl+Shift+Del)
 
-### "Forestry não vê as mudanças"
-- Clique em **Settings** → **Sync from GitHub**
-- Forestry sincroniza a cada mudança automicamente
+### "TinaCMS não vê as mudanças"
+- Clique em **Settings** → **Fetch branches**
+- TinaCMS sincroniza a cada mudança automaticamente
 
 ### "Deploy falha"
 - Verifique **Actions** no GitHub para ver o erro
@@ -199,99 +208,26 @@ Atualize seus dados em diversos arquivos:
 ## 💡 Dicas
 
 - **Editar pelo código:** Sempre funciona, use VS Code normalmente
-- **Editar pelo CMS:** Use Forestry para interface visual
+- **Editar pelo CMS:** Use TinaCMS para interface visual com preview
 - **Ambos funcionam juntos:** Você pode usar código e CMS ao mesmo tempo
 - **Backup automático:** Git + GitHub = backup grátis e infinito
+- **Histórico:** Todo commit fica guardado no GitHub
 
 ---
 
 ## 🚀 Próximos Passos
 
-- Escrever primeiros posts no Forestry
+- Escrever primeiros posts no TinaCMS
 - Adicionar projetos ao portfólio
 - Customizar cores e fonts em `src/styles/tokens.css`
 - Adicionar suas redes sociais
 - Domínio customizado (opcional)
-3. Autorize o acesso
-4. ✅ Painel do CMS deve aparecer!
 
 ---
 
-## Passo 5: Adicionar Foto de Perfil
+## 📖 Recursos Úteis
 
-1. Salve uma foto sua em: `public/images/profile.jpg` (proporção 3:4)
-2. Faça commit e push:
-
-```bash
-git add public/images/profile.jpg
-git commit -m "feat: add profile image"
-git push
-```
-
-O Netlify vai detectar a mudança e redeploy automaticamente!
-
----
-
-## Passo 6: Personálizar Informações
-
-Atualize seus dados em diversos arquivos:
-
-### Dados na home [src/pages/index.astro](src/pages/index.astro)
-- Nome
-- Email
-- especialidades
-
-### Dados na página sobre [src/pages/sobre.astro](src/pages/sobre.astro)
-- Bio completa
-- Carreira
-- Valores
-
-### Dados na config [astro.config.mjs](astro.config.mjs)
-- Site URL (atualize para seu domínio Netlify)
-
----
-
-## ✅ Checklist Final
-
-- [ ] Repositório criado como `menardiluis.github.io`
-- [ ] Código enviado para `main`
-- [ ] Site importado no Netlify
-- [ ] Build deploy com sucesso no Netlify
-- [ ] OAuth App criado no GitHub
-- [ ] Secrets adicionados no Netlify
-- [ ] CMS acessível em `/admin/`
-- [ ] Foto de perfil inserida
-- [ ] Informações pessoais atualizadas
-- [ ] Site no ar no Netlify
-
----
-
-## 🐛 Troubleshooting
-
-### "O site não apareceu ainda"
-- Aguarde 5-10 minutos após fazer push
-- Verifique **Deploys** no Netlify para ver status
-- Limpe o cache do navegador (Ctrl+Shift+Del)
-
-### "CMS diz 'Invalid GitHub Config'"
-- Confirme que os secrets foram salvos
-- Verifique se o OAuth App está com URLs corretas
-- Tente fazer logout e login novamente
-
-### "Meu código não foi atualizado"
-- Confirme que o commit foi feito: `git log`
-- Confirme que o push.foi feito: `git status`
-- Verifique o workflow em **GitHub → Actions**
-
----
-
-## 📞 Próximos Passos
-
-1. **Adicione projetos** via CMS em `/admin/`
-2. **Escreva um post** no blog
-3. **Customizador design** alterando [src/styles/tokens.css](src/styles/tokens.css)
-4. **Adicione redes sociais** no Footer
-
----
-
-🎉 Seu portfólio está pronto! Boa sorte!
+- [TinaCMS Docs](https://tina.io/docs/)
+- [Astro Docs](https://docs.astro.build/)
+- [GitHub Pages Docs](https://pages.github.com/)
+- [Markdown Guide](https://www.markdownguide.org/)
