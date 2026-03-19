@@ -1,0 +1,68 @@
+window.CMS_CONFIG = {
+  locale: 'pt_BR',
+  backend: {
+    name: 'github',
+    repo: 'menardiluis/menardiluis.github.io',
+    branch: 'main',
+    auth_scope: 'repo',
+    squash_merges: true,
+    commit_messages: {
+      create: 'chore(cms): create {{collection}} "{{slug}}"',
+      update: 'chore(cms): update {{collection}} "{{slug}}"',
+      delete: 'chore(cms): delete {{collection}} "{{slug}}"',
+      uploadMedia: 'chore(cms): upload media',
+      deleteMedia: 'chore(cms): delete media'
+    }
+  },
+  site_url: 'https://menardiluis.netlify.app',
+  logo_url: 'https://menardiluis.netlify.app/favicon.svg',
+  media_folder: 'public/images/blog',
+  public_folder: '/images/blog',
+  publish_mode: 'editorial_workflow',
+  show_preview_links: true,
+  collections: [
+    {
+      name: 'blog',
+      label: 'Blog Posts',
+      folder: 'src/content/blog',
+      create: true,
+      slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+      fields: [
+        { label: 'Título', name: 'title', widget: 'string' },
+        { label: 'Data', name: 'date', widget: 'datetime' },
+        { label: 'Resumo', name: 'summary', widget: 'text' },
+        { label: 'Capa', name: 'cover', widget: 'image', required: false },
+        {
+          label: 'Categoria',
+          name: 'category',
+          widget: 'select',
+          options: ['Design Systems', 'Craft de Design', 'AI no Design']
+        },
+        { label: 'Tags', name: 'tags', widget: 'list', required: false },
+        { label: 'Destaque?', name: 'featured', widget: 'boolean', default: false },
+        { label: 'Rascunho?', name: 'draft', widget: 'boolean', default: false },
+        { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      ]
+    },
+    {
+      name: 'projects',
+      label: 'Projetos',
+      folder: 'src/content/projects',
+      create: true,
+      slug: '{{slug}}',
+      fields: [
+        { label: 'Título', name: 'title', widget: 'string' },
+        { label: 'Empresa', name: 'company', widget: 'string' },
+        { label: 'Ano', name: 'year', widget: 'number' },
+        { label: 'Cargo', name: 'role', widget: 'string' },
+        { label: 'Duração', name: 'duration', widget: 'string' },
+        { label: 'Categorias', name: 'categories', widget: 'list' },
+        { label: 'Capa', name: 'cover', widget: 'image' },
+        { label: 'Resumo', name: 'summary', widget: 'text' },
+        { label: 'Destaque?', name: 'featured', widget: 'boolean', default: false },
+        { label: 'Ordem', name: 'order', widget: 'number', default: 99 },
+        { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      ]
+    }
+  ]
+};

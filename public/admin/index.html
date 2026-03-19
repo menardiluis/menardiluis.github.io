@@ -8,25 +8,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/decap-cms@3.1.2/dist/decap-cms.css" />
   </head>
   <body>
+    <!-- Carregar config primeiro -->
+    <script src="./config.js"></script>
+    <!-- Depois carregar o Decap CMS -->
     <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.1.2/dist/decap-cms.js"></script>
     <script>
-      // Aguardar o Decap CMS carregar
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM Loaded');
-        if (window.CMS_IDENTIFIER_WINDOW) {
-          console.log('Decap CMS está carregado');
+      // Aguardar o CMS carregar e usar a config global
+      window.addEventListener('load', function() {
+        console.log('Página carregada');
+        if (window.CMS && typeof CMS.loadConfig === 'function') {
+          console.log('Decap CMS carregado, aplicando config...');
+          if (window.CMS_CONFIG) {
+            CMS.loadConfig({config: window.CMS_CONFIG});
+            console.log('Config aplicada');
+          }
         }
       });
-
-      // Aguardar por 2 segundos para garantir que o CMS carregou
-      setTimeout(function() {
-        if (window.CMS) {
-          console.log('Decap CMS pronto');
-          // O CMS deve carregar o config.yml automaticamente
-        } else {
-          console.error('Decap CMS ainda não carregou');
-        }
-      }, 2000);
     </script>
   </body>
 </html>
