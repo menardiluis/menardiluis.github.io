@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
+import Button from '@components/ui/button.jsx'
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -55,7 +56,7 @@ const { Content } = await project.render();
       </div>
 
       <nav class="project-detail__nav">
-        <a href="/projetos" class="btn btn--secondary">Ver todos os projetos</a>
+        <Button client:load variant="secondary" href="/projetos">Ver todos os projetos</Button>
       </nav>
     </article>
   </main>

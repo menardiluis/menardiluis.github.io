@@ -1,6 +1,12 @@
-# 🚀 Guia de Setup — GitHub Pages + Decap CMS
+# 🚀 Guia de Setup — Netlify + Decap CMS
 
-Este guia orienta você passo a passo para colocar seu portfólio no ar!
+Este guia orienta você passo a passo para colocar seu portfólio no ar com Decap CMS funcional!
+
+---
+
+## ⚡ NOVO: Deploy no Netlify (Recomendado para CMS)
+
+Ao usar **Netlify** em vez de GitHub Pages, o Decap CMS funciona 100% com autenticação GitHub nativa!
 
 ---
 
@@ -23,7 +29,7 @@ cd menardiluis.github.io
 
 # Copie todos os arquivos deste projeto para a pasta
 
-# Iniciialize git e faça o primeiro commit
+# Inicialize git e faça o primeiro commit
 git add .
 git commit -m "chore: initial setup astro portfolio"
 git branch -M main
@@ -33,67 +39,74 @@ git push -u origin main
 
 ---
 
-## Passo 3: Configurar GitHub Pages
+## Passo 3: ✨ NOVO - Deploy no Netlify
 
-1. Vá para o repositório no GitHub
-2. **Settings → Pages**
-3. Em **Source**, selecione:
-   - Branch: `main`
-   - Folder: `/ (root)`
-4. Clique **Save**
+### 3.1 — Criar Conta Netlify
 
-O GitHub Pages vai iniciar automaticamente. Em poucos minutos, seu site estará em: `https://menardiluis.github.io`
+1. Vá para [netlify.com](https://netlify.com)
+2. Clique **Sign up** → **GitHub**
+3. Autorize o acesso ao GitHub
+
+### 3.2 — Importar Repositório
+
+1. Clique **Add new site** → **Import an existing project**
+2. Selecione **GitHub**
+3. Procure por **`menardiluis.github.io`**
+4. Clique **Import**
+
+### 3.3 — Configurar Build
+
+**Build command:** `npm run build`
+**Publish directory:** `dist`
+
+Clique **Deploy site**
+
+Pronto! Seu site estará em `https://seu-site-aleatorio.netlify.app` (em poucos minutos)
+
+### 3.4 — (Opcional) Usar Domínio Customizado
+
+Para usar `menardiluis.github.io` no Netlify:
+
+1. Na configuração do Netlify, vá em **Domain settings**
+2. Clique **Add custom domain**
+3. Digite `menardiluis.github.io`
+4. Siga as instruções de DNS
 
 ---
 
-## Passo 4: Configurar Deploy Automático
+## Passo 4: Configurar OAuth para Decap CMS
 
-O arquivo [.github/workflows/deploy.yml](.github/workflows/deploy.yml) já vem configurado!
-
-Toda vez que você faz `push` para `main`, o GitHub Actions vai:
-1. Instalar dependências
-2. Fazer build com Astro
-3. Fazer deploy automático no Pages
-
-**Confirmando funcionamento:**
-1. Vá para **Actions** no seu repositório
-2. Você deve ver um workflow em execução
-3. Espere completar (verde ✅)
-
----
-
-## Passo 5: Configurar Decap CMS
-
-### 5.1 — Criar um OAuth Application
+### 4.1 — Criar OAuth Application no GitHub
 
 1. Vá para **GitHub → Settings → Developer settings → OAuth Apps**
 2. Clique **New OAuth App**
 3. Preencha:
    - **Application name:** Portfolio CMS
-   - **Homepage URL:** `https://menardiluis.github.io`
+   - **Homepage URL:** `https://seu-site.netlify.app` (ou seu domínio)
    - **Authorization callback URL:** `https://api.netlify.com/auth/done`
 4. Clique **Register application**
 5. Copie o **Client ID**
 6. Clique **Generate a new client secret** e copie também
 
-### 5.2 — Configurar no Repositório
+### 4.2 — Adicionar Secrets no Netlify
 
-1. Vá para **Settings → Secrets and variables →Actions**
-2. Clique **New repository secret**
-3. Crie dois secrets:
-   - **DECAP_CMS_GITHUB_CLIENT_ID:** Colar o Client ID
-   - **DECAP_CMS_GITHUB_CLIENT_SECRET:** Colar o Client Secret
+1. No painel Netlify, vá em **Site settings → Build & deploy → Environment**
+2. Clique **Edit variables**
+3. Adicione dois novos:
+   - **GITHUB_CLIENT_ID:** Colar o Client ID
+   - **GITHUB_CLIENT_SECRET:** Colar o Client Secret
+4. Redeploy o site (clique em **Trigger deploy**)
 
-### 5.3 — Testar o CMS
+### 4.3 — Testar o CMS
 
-1. Vá para: `https://menardiluis.github.io/admin/`
+1. Vá para: `https://seu-site.netlify.app/admin/` 
 2. Clique **Login with GitHub**
 3. Autorize o acesso
-4. Você deve ver o painel do CMS!
+4. ✅ Painel do CMS deve aparecer!
 
 ---
 
-## Passo 6: Adicionar Foto de Perfil
+## Passo 5: Adicionar Foto de Perfil
 
 1. Salve uma foto sua em: `public/images/profile.jpg` (proporção 3:4)
 2. Faça commit e push:
@@ -104,9 +117,11 @@ git commit -m "feat: add profile image"
 git push
 ```
 
+O Netlify vai detectar a mudança e redeploy automaticamente!
+
 ---
 
-## Passo 7: Personálizar Informações
+## Passo 6: Personálizar Informações
 
 Atualize seus dados em diversos arquivos:
 
@@ -121,7 +136,7 @@ Atualize seus dados em diversos arquivos:
 - Valores
 
 ### Dados na config [astro.config.mjs](astro.config.mjs)
-- Site URL já tem seu username
+- Site URL (atualize para seu domínio Netlify)
 
 ---
 
@@ -129,14 +144,14 @@ Atualize seus dados em diversos arquivos:
 
 - [ ] Repositório criado como `menardiluis.github.io`
 - [ ] Código enviado para `main`
-- [ ] GitHub Pages configurado
-- [ ] Workflow de deploy em sucesso (verde ✅)
+- [ ] Site importado no Netlify
+- [ ] Build deploy com sucesso no Netlify
 - [ ] OAuth App criado no GitHub
-- [ ] Secrets adicionados ao repositório
+- [ ] Secrets adicionados no Netlify
 - [ ] CMS acessível em `/admin/`
 - [ ] Foto de perfil inserida
 - [ ] Informações pessoais atualizadas
-- [ ] Site pelo no ar em `https://menardiluis.github.io`
+- [ ] Site no ar no Netlify
 
 ---
 
@@ -144,7 +159,7 @@ Atualize seus dados em diversos arquivos:
 
 ### "O site não apareceu ainda"
 - Aguarde 5-10 minutos após fazer push
-- Verifique **Actions** para ver se o workflow passou
+- Verifique **Deploys** no Netlify para ver status
 - Limpe o cache do navegador (Ctrl+Shift+Del)
 
 ### "CMS diz 'Invalid GitHub Config'"

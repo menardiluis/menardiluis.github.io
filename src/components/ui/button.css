@@ -26,6 +26,7 @@
   background-color: var(--color-accent);
   color: #fff;
   border: 2px solid var(--color-accent);
+  text-decoration: none;
 }
 
 .button--primary:hover:not(:disabled) {
@@ -51,6 +52,7 @@
   background-color: transparent;
   color: var(--color-accent);
   border: 2px solid var(--color-accent);
+  text-decoration: none;
 }
 
 .button--secondary:hover:not(:disabled) {
@@ -76,6 +78,7 @@
   background-color: transparent;
   color: var(--color-text-primary);
   border: 2px solid transparent;
+  text-decoration: none;
 }
 
 .button--subtle:hover:not(:disabled) {

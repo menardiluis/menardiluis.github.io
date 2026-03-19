@@ -1,11 +1,26 @@
+locale: pt_BR
+
 backend:
   name: github
   repo: menardiluis/menardiluis.github.io
   branch: main
+  auth_endpoint: api/auth
   auth_scope: repo
+  squash_merges: true
+  commit_messages:
+    create: 'chore(cms): create {{collection}} "{{slug}}"'
+    update: 'chore(cms): update {{collection}} "{{slug}}"'
+    delete: 'chore(cms): delete {{collection}} "{{slug}}"'
+    uploadMedia: 'chore(cms): upload media'
+    deleteMedia: 'chore(cms): delete media'
 
 media_folder: "public/images/blog"
 public_folder: "/images/blog"
+
+publish_mode: editorial_workflow
+show_preview_links: true
+display_url: https://menardiluis.github.io
+logo_url: https://menardiluis.github.io/images/logo.png
 
 collections:
   - name: blog
