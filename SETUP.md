@@ -1,12 +1,15 @@
-# 🚀 Guia de Setup — Netlify + Decap CMS
+# 🚀 Guia de Setup — GitHub Pages + Forestry CMS (100% Grátis)
 
-Este guia orienta você passo a passo para colocar seu portfólio no ar com Decap CMS funcional!
+Este guia orienta você passo a passo para colocar seu portfólio no ar com CMS visual e completamente grátis!
 
 ---
 
-## ⚡ NOVO: Deploy no Netlify (Recomendado para CMS)
+## ✨ Stack Utilizado
 
-Ao usar **Netlify** em vez de GitHub Pages, o Decap CMS funciona 100% com autenticação GitHub nativa!
+- **Host:** GitHub Pages (grátis, forever)
+- **CMS:** Forestry.io (grátis para 1 site)
+- **Deploy:** GitHub Actions (automático)
+- **Build:** Astro
 
 ---
 
@@ -39,25 +42,69 @@ git push -u origin main
 
 ---
 
-## Passo 3: ✨ NOVO - Deploy no Netlify
+## Passo 3: Configurar GitHub Pages
 
-### 3.1 — Criar Conta Netlify
+1. Vá para o repositório no GitHub
+2. **Settings → Pages**
+3. Em **Source**, selecione:
+   - Branch: `main`
+   - Folder: `/ (root)`
+4. Clique **Save**
 
-1. Vá para [netlify.com](https://netlify.com)
-2. Clique **Sign up** → **GitHub**
-3. Autorize o acesso ao GitHub
+O GitHub Pages vai iniciar automaticamente. Em poucos minutos, seu site estará em: `https://menardiluis.github.io`
 
-### 3.2 — Importar Repositório
+---
 
-1. Clique **Add new site** → **Import an existing project**
-2. Selecione **GitHub**
-3. Procure por **`menardiluis.github.io`**
-4. Clique **Import**
+## Passo 4: Deploy Automático com GitHub Actions
 
-### 3.3 — Configurar Build
+O arquivo [.github/workflows/deploy.yml](.github/workflows/deploy.yml) já vem configurado!
 
-**Build command:** `npm run build`
-**Publish directory:** `dist`
+Toda vez que você faz `push` para `main`, o GitHub Actions vai:
+1. Instalar dependências
+2. Fazer build com Astro
+3. Fazer deploy automático no Pages
+
+**Confirmando funcionamento:**
+1. Vá para **Actions** no seu repositório
+2. Você deve ver um workflow em execução
+3. Espere completar (verde ✅)
+
+---
+
+## Passo 5: Configurar Forestry CMS (GRÁTIS!)
+
+### 5.1 — Criar Conta Forestry
+
+1. Vá para [app.forestry.io](https://app.forestry.io)
+2. Clique **Sign up with GitHub**
+3. Autorize o acesso
+4. Pronto!
+
+### 5.2 — Importar Repositório
+
+1. No Forestry, clique **Add site**
+2. Procure por **GitHub**
+3. Selecione seu repositório **`menardiluis.github.io`**
+4. Clique **Connect**
+5. Forestry detectará automaticamente a estrutura (`.forestry/settings.yml`)
+
+### 5.3 — Testar o CMS
+
+1. Você será redirecionado para o dashboard do Forestry
+2. Clique em **Blog Posts** ou **Projetos**
+3. Clique **Create new**
+4. Preencha os campos
+5. Clique **Save**
+6. Forestry vai:
+   - Criar o arquivo
+   - Fazer commit automático no GitHub
+   - GitHub Actions vai fazer build e deploy
+
+**Seu novo post/projeto aparecerá em 2-3 minutos no site!**
+
+---
+
+## Passo 6: Adicion
 
 Clique **Deploy site**
 

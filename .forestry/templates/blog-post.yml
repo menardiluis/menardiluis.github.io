@@ -1,0 +1,45 @@
+---
+label: Blog Post
+name: blog-post
+fields:
+- type: text
+  name: title
+  label: Título
+  config:
+    required: true
+- type: datetime
+  name: date
+  label: Data
+  config:
+    required: true
+- type: textarea
+  name: summary
+  label: Resumo
+  config:
+    required: true
+    rows: 3
+- type: file
+  name: cover
+  label: Capa
+- type: select
+  name: category
+  label: Categoria
+  choices:
+  - Design Systems
+  - Craft de Design
+  - AI no Design
+- type: tag-list
+  name: tags
+  label: Tags
+- type: boolean
+  name: featured
+  label: Destaque?
+  default: false
+- type: boolean
+  name: draft
+  label: Rascunho?
+  default: false
+- type: rich-text
+  name: body
+  label: Conteúdo
+  isBody: true
