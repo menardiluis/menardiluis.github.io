@@ -27,6 +27,9 @@ jobs:
           path: .
           node-version: "18"
           package-manager: npm
+        env:
+          TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
 
   deploy:
     needs: build
