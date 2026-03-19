@@ -10,6 +10,7 @@ export default defineConfig({
   branch,
   clientId: process.env.TINA_CLIENT_ID || "bdb3d7a0-e9d1-4547-b22a-ec811ee4ada8",
   token: process.env.TINA_TOKEN || "",
+  apiURL: "https://content.tinajs.io",
   build: {
     outputDir: "admin",
   },
