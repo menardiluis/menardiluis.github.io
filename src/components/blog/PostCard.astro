@@ -61,9 +61,9 @@ const formatDate = (date: Date) => {
 
   .post-card__category {
     display: inline-block;
-    background-color: var(--color-accent-muted);
+    background-color: var(--color-accent-subtle);
     color: var(--color-accent);
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-md);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
@@ -88,4 +88,28 @@ const formatDate = (date: Date) => {
     color: var(--color-text-secondary);
     line-height: var(--line-height-normal);
   }
+
+  @media  (max-width: 768px) {
+
+    .post-card__header {
+      align-items: start;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .post-card__date {
+      font-size: var(--font-size-sm);
+    }
+
+    .post-card__title {
+      font-size: var(--font-size-md);
+      margin-bottom: var(--space-1);
+    }
+
+    .post-card__summary {
+      font-size: var(--font-size-sm);
+    }
+
+  }
+
 </style>
